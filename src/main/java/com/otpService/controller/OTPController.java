@@ -1,6 +1,7 @@
 package com.otpService.controller;
 
 import com.otpService.payload.OTPRequest;
+import com.otpService.payload.OTPVerification;
 import com.otpService.service.OTPService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,5 +20,10 @@ public class OTPController {
 
         otpService.sendOtp(otpRequest.getPhoneNumber());
         return new ResponseEntity<>("Otp has been send", HttpStatus.OK);
+    }
+    @PostMapping("/verify-otp")
+    public ResponseEntity<String> verifyOtp(@RequestBody OTPVerification otpVerification) {
+        String s = otpService.verifyOtp(otpVerification.getPhoneNumber(), otpVerification.getEnteredOtp());
+        return new ResponseEntity<>(s,HttpStatus.OK);
     }
 }
