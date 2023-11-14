@@ -12,15 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class OTPController {
+
     @Autowired
     private OTPService otpService;
 
     @PostMapping("/send-otp")
-    public ResponseEntity<String> sendOtp(@RequestBody OTPRequest otpRequest) {
+    public ResponseEntity<String> sendOtp(@RequestBody OTPRequest  otpRequest) {
 
         otpService.sendOtp(otpRequest.getPhoneNumber());
-        return new ResponseEntity<>("Otp has been send", HttpStatus.OK);
+        return new ResponseEntity<>("Otp has been send",HttpStatus.OK);
     }
+
     @PostMapping("/verify-otp")
     public ResponseEntity<String> verifyOtp(@RequestBody OTPVerification otpVerification) {
         String s = otpService.verifyOtp(otpVerification.getPhoneNumber(), otpVerification.getEnteredOtp());

@@ -1,6 +1,7 @@
 package com.otpService.payload;
 
 
+
 public class OTPVerification {
     private String phoneNumber;
 

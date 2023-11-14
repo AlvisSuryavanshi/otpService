@@ -1,5 +1,6 @@
 package com.otpService.payload;
 
+
 public class OTPRequest {
     private String phoneNumber;
 
@@ -10,4 +11,6 @@ public class OTPRequest {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+// getters and setters
 }
+

@@ -25,8 +25,8 @@ public class OTPService {
     private final Random random = new Random();
 
     // Store generated OTPs in memory (Replace with a database in production)
-
     private final Map<String, String> generatedOtps = new HashMap<>();
+
     public void sendOtp(String recipientPhoneNumber) {
         Twilio.init(twilioAccountSid, twilioAuthToken);
 
